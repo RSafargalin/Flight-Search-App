@@ -23,7 +23,7 @@
                                     <constraint firstAttribute="width" constant="60" id="NPj-v6-kVD"/>
                                 </constraints>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Flight Search App" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v4R-X5-dsL">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Flight Search App" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v4R-X5-dsL">
                                 <rect key="frame" x="43.5" y="393" width="327" height="110"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="110" id="hd6-hm-5F1"/>
