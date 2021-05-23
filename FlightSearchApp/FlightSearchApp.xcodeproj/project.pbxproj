@@ -14,6 +14,7 @@
 		FE1AD9C226510787008D9EB7 /* airports.json in Resources */ = {isa = PBXBuildFile; fileRef = FE1AD9BF26510787008D9EB7 /* airports.json */; };
 		FE1AD9C326510787008D9EB7 /* cities.json in Resources */ = {isa = PBXBuildFile; fileRef = FE1AD9C026510787008D9EB7 /* cities.json */; };
 		FE1AD9C426510787008D9EB7 /* countries.json in Resources */ = {isa = PBXBuildFile; fileRef = FE1AD9C126510787008D9EB7 /* countries.json */; };
+		FE42F1E5265A658F003AF487 /* PointCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FE42F1E4265A658F003AF487 /* PointCell.m */; };
 		FE897AC92650FEE200DBA615 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FE897AC82650FEE200DBA615 /* AppDelegate.m */; };
 		FE897ACC2650FEE200DBA615 /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FE897ACB2650FEE200DBA615 /* SceneDelegate.m */; };
 		FE897ACF2650FEE200DBA615 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FE897ACE2650FEE200DBA615 /* MainViewController.m */; };
@@ -35,6 +36,8 @@
 		FE1AD9BF26510787008D9EB7 /* airports.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = airports.json; sourceTree = "<group>"; };
 		FE1AD9C026510787008D9EB7 /* cities.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = cities.json; sourceTree = "<group>"; };
 		FE1AD9C126510787008D9EB7 /* countries.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = countries.json; sourceTree = "<group>"; };
+		FE42F1E3265A658F003AF487 /* PointCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PointCell.h; sourceTree = "<group>"; };
+		FE42F1E4265A658F003AF487 /* PointCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PointCell.m; sourceTree = "<group>"; };
 		FE897AC42650FEE200DBA615 /* FlightSearchApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FlightSearchApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FE897AC72650FEE200DBA615 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		FE897AC82650FEE200DBA615 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -123,6 +126,15 @@
 			path = "Data Manager";
 			sourceTree = "<group>";
 		};
+		FE42F1E2265A6573003AF487 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				FE42F1E3265A658F003AF487 /* PointCell.h */,
+				FE42F1E4265A658F003AF487 /* PointCell.m */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
 		FE897ABB2650FEE200DBA615 = {
 			isa = PBXGroup;
 			children = (
@@ -175,6 +187,7 @@
 		FEC893DC265A4F2D00A8E43A /* Place VC */ = {
 			isa = PBXGroup;
 			children = (
+				FE42F1E2265A6573003AF487 /* Cell */,
 				FEC893D8265A4F2200A8E43A /* PlaceViewController.h */,
 				FEC893D9265A4F2200A8E43A /* PlaceViewController.m */,
 			);
@@ -285,6 +298,7 @@
 				FEC893DA265A4F2200A8E43A /* PlaceViewController.m in Sources */,
 				FE897ACF2650FEE200DBA615 /* MainViewController.m in Sources */,
 				FE897AC92650FEE200DBA615 /* AppDelegate.m in Sources */,
+				FE42F1E5265A658F003AF487 /* PointCell.m in Sources */,
 				FE1AD9B9265104AE008D9EB7 /* Airport.m in Sources */,
 				FE1AD9B626510480008D9EB7 /* City.m in Sources */,
 				FE897ADA2650FEE300DBA615 /* main.m in Sources */,

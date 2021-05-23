@@ -7,6 +7,7 @@
 
 #import "PlaceViewController.h"
 #import "DataManager.h"
+#import "PointCell.h"
 
 #define ReuseIdentifier @"CellIdentifier"
 
@@ -93,21 +94,21 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:ReuseIdentifier];
+    PointCell *cell = [tableView dequeueReusableCellWithIdentifier:ReuseIdentifier];
     
     if (!cell) {
-        cell = [[UITableViewCell alloc] initWithStyle: UITableViewCellStyleSubtitle reuseIdentifier:ReuseIdentifier];
+        cell = [[PointCell alloc] initWithStyle: UITableViewCellStyleSubtitle reuseIdentifier:ReuseIdentifier];
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     }
     if (_segmentedControl.selectedSegmentIndex == 0) {
         City *city = [_currentArray objectAtIndex:indexPath.row];
-        cell.textLabel.text = city.name;
-        cell.detailTextLabel.text = city.code;
+        [cell configureWithName: city.name
+                        andCode: city.code];
     }
     else if (_segmentedControl.selectedSegmentIndex == 1) {
         Airport *airport = [_currentArray objectAtIndex:indexPath.row];
-        cell.textLabel.text = airport.name;
-        cell.detailTextLabel.text = airport.code;
+        [cell configureWithName: airport.name
+                        andCode: airport.code];
     }
     
     return cell;
