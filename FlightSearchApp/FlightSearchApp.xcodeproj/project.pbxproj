@@ -22,6 +22,12 @@
 		FE897AD72650FEE300DBA615 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FE897AD52650FEE300DBA615 /* LaunchScreen.storyboard */; };
 		FE897ADA2650FEE300DBA615 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = FE897AD92650FEE300DBA615 /* main.m */; };
 		FEC893DA265A4F2200A8E43A /* PlaceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FEC893D9265A4F2200A8E43A /* PlaceViewController.m */; };
+		FEFCE82826640848009B2BCE /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FEFCE82726640848009B2BCE /* MapViewController.m */; };
+		FEFCE82D266408A1009B2BCE /* LocationService.m in Sources */ = {isa = PBXBuildFile; fileRef = FEFCE82C266408A1009B2BCE /* LocationService.m */; };
+		FEFCE83126640923009B2BCE /* NetworkService.m in Sources */ = {isa = PBXBuildFile; fileRef = FEFCE83026640923009B2BCE /* NetworkService.m */; };
+		FEFCE83526640990009B2BCE /* Ticket.m in Sources */ = {isa = PBXBuildFile; fileRef = FEFCE83426640990009B2BCE /* Ticket.m */; };
+		FEFCE839266409CA009B2BCE /* MapPrice.m in Sources */ = {isa = PBXBuildFile; fileRef = FEFCE838266409CA009B2BCE /* MapPrice.m */; };
+		FEFCE83D2664129B009B2BCE /* TabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FEFCE83C2664129B009B2BCE /* TabBarViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -51,6 +57,18 @@
 		FE897AD92650FEE300DBA615 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		FEC893D8265A4F2200A8E43A /* PlaceViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PlaceViewController.h; sourceTree = "<group>"; };
 		FEC893D9265A4F2200A8E43A /* PlaceViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PlaceViewController.m; sourceTree = "<group>"; };
+		FEFCE82626640848009B2BCE /* MapViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MapViewController.h; sourceTree = "<group>"; };
+		FEFCE82726640848009B2BCE /* MapViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
+		FEFCE82B266408A1009B2BCE /* LocationService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LocationService.h; sourceTree = "<group>"; };
+		FEFCE82C266408A1009B2BCE /* LocationService.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LocationService.m; sourceTree = "<group>"; };
+		FEFCE82F26640923009B2BCE /* NetworkService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NetworkService.h; sourceTree = "<group>"; };
+		FEFCE83026640923009B2BCE /* NetworkService.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NetworkService.m; sourceTree = "<group>"; };
+		FEFCE83326640990009B2BCE /* Ticket.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Ticket.h; sourceTree = "<group>"; };
+		FEFCE83426640990009B2BCE /* Ticket.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Ticket.m; sourceTree = "<group>"; };
+		FEFCE837266409CA009B2BCE /* MapPrice.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MapPrice.h; sourceTree = "<group>"; };
+		FEFCE838266409CA009B2BCE /* MapPrice.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MapPrice.m; sourceTree = "<group>"; };
+		FEFCE83B2664129B009B2BCE /* TabBarViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TabBarViewController.h; sourceTree = "<group>"; };
+		FEFCE83C2664129B009B2BCE /* TabBarViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TabBarViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,6 +93,8 @@
 		FE1AD9AD2651042A008D9EB7 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				FEFCE836266409BF009B2BCE /* MapPrice */,
+				FEFCE8322664097C009B2BCE /* Ticket */,
 				FE1AD9B32651046B008D9EB7 /* City */,
 				FE1AD9B226510465008D9EB7 /* Airport */,
 				FE1AD9B126510458008D9EB7 /* Country */,
@@ -112,6 +132,8 @@
 		FE1AD9BA265105C9008D9EB7 /* Services & Managers */ = {
 			isa = PBXGroup;
 			children = (
+				FEFCE82E26640916009B2BCE /* Network Service */,
+				FEFCE82A2664088A009B2BCE /* Location Service */,
 				FE1AD9BB265105E0008D9EB7 /* Data Manager */,
 			);
 			path = "Services & Managers";
@@ -154,6 +176,7 @@
 		FE897AC62650FEE200DBA615 /* FlightSearchApp */ = {
 			isa = PBXGroup;
 			children = (
+				FEFCE82926640881009B2BCE /* Support Files */,
 				FE897AD82650FEE300DBA615 /* Info.plist */,
 				FEC893DE265A61C000A8E43A /* App */,
 				FEC893D7265A4EFF00A8E43A /* Screens */,
@@ -177,8 +200,10 @@
 		FEC893D7265A4EFF00A8E43A /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				FEFCE83A2664126E009B2BCE /* TabBar VC */,
 				FEC893DF265A61CF00A8E43A /* Launch */,
 				FEC893DD265A5E2000A8E43A /* Main VC */,
+				FEFCE82526640837009B2BCE /* Map VC */,
 				FEC893DC265A4F2D00A8E43A /* Place VC */,
 			);
 			path = Screens;
@@ -222,6 +247,67 @@
 				FE897AD52650FEE300DBA615 /* LaunchScreen.storyboard */,
 			);
 			path = Launch;
+			sourceTree = "<group>";
+		};
+		FEFCE82526640837009B2BCE /* Map VC */ = {
+			isa = PBXGroup;
+			children = (
+				FEFCE82626640848009B2BCE /* MapViewController.h */,
+				FEFCE82726640848009B2BCE /* MapViewController.m */,
+			);
+			path = "Map VC";
+			sourceTree = "<group>";
+		};
+		FEFCE82926640881009B2BCE /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "Support Files";
+			sourceTree = "<group>";
+		};
+		FEFCE82A2664088A009B2BCE /* Location Service */ = {
+			isa = PBXGroup;
+			children = (
+				FEFCE82B266408A1009B2BCE /* LocationService.h */,
+				FEFCE82C266408A1009B2BCE /* LocationService.m */,
+			);
+			path = "Location Service";
+			sourceTree = "<group>";
+		};
+		FEFCE82E26640916009B2BCE /* Network Service */ = {
+			isa = PBXGroup;
+			children = (
+				FEFCE82F26640923009B2BCE /* NetworkService.h */,
+				FEFCE83026640923009B2BCE /* NetworkService.m */,
+			);
+			path = "Network Service";
+			sourceTree = "<group>";
+		};
+		FEFCE8322664097C009B2BCE /* Ticket */ = {
+			isa = PBXGroup;
+			children = (
+				FEFCE83326640990009B2BCE /* Ticket.h */,
+				FEFCE83426640990009B2BCE /* Ticket.m */,
+			);
+			path = Ticket;
+			sourceTree = "<group>";
+		};
+		FEFCE836266409BF009B2BCE /* MapPrice */ = {
+			isa = PBXGroup;
+			children = (
+				FEFCE837266409CA009B2BCE /* MapPrice.h */,
+				FEFCE838266409CA009B2BCE /* MapPrice.m */,
+			);
+			path = MapPrice;
+			sourceTree = "<group>";
+		};
+		FEFCE83A2664126E009B2BCE /* TabBar VC */ = {
+			isa = PBXGroup;
+			children = (
+				FEFCE83B2664129B009B2BCE /* TabBarViewController.h */,
+				FEFCE83C2664129B009B2BCE /* TabBarViewController.m */,
+			);
+			path = "TabBar VC";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -295,16 +381,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FEFCE82D266408A1009B2BCE /* LocationService.m in Sources */,
 				FEC893DA265A4F2200A8E43A /* PlaceViewController.m in Sources */,
 				FE897ACF2650FEE200DBA615 /* MainViewController.m in Sources */,
 				FE897AC92650FEE200DBA615 /* AppDelegate.m in Sources */,
 				FE42F1E5265A658F003AF487 /* PointCell.m in Sources */,
 				FE1AD9B9265104AE008D9EB7 /* Airport.m in Sources */,
 				FE1AD9B626510480008D9EB7 /* City.m in Sources */,
+				FEFCE83526640990009B2BCE /* Ticket.m in Sources */,
 				FE897ADA2650FEE300DBA615 /* main.m in Sources */,
+				FEFCE839266409CA009B2BCE /* MapPrice.m in Sources */,
 				FE1AD9BE265105ED008D9EB7 /* DataManager.m in Sources */,
+				FEFCE83126640923009B2BCE /* NetworkService.m in Sources */,
+				FEFCE83D2664129B009B2BCE /* TabBarViewController.m in Sources */,
 				FE897ACC2650FEE200DBA615 /* SceneDelegate.m in Sources */,
 				FE1AD9B02651043C008D9EB7 /* Country.m in Sources */,
+				FEFCE82826640848009B2BCE /* MapViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

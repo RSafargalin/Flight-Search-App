@@ -30,12 +30,14 @@
     self.view.backgroundColor = [UIColor whiteColor];
     self.navigationController.navigationBar.prefersLargeTitles = YES;
     self.title = @"Поиск";
+//    NSLog(self.tabBarItem.image);
 }
 
 - (void) departureButtonSetup {
     _departureButton = [UIButton buttonWithType:UIButtonTypeSystem];
     [_departureButton setTitle:@"Откуда" forState: UIControlStateNormal];
     _departureButton.tintColor = [UIColor blackColor];
+    _departureButton.layer.cornerRadius = 15;
     _departureButton.frame = CGRectMake(30.0, 140.0, [UIScreen mainScreen].bounds.size.width - 60.0, 60.0);
     _departureButton.backgroundColor = [[UIColor lightGrayColor] colorWithAlphaComponent:0.3];
     [_departureButton addTarget:self
@@ -48,6 +50,7 @@
     _arrivalButton = [UIButton buttonWithType:UIButtonTypeSystem];
     [_arrivalButton setTitle:@"Куда" forState: UIControlStateNormal];
     _arrivalButton.tintColor = [UIColor blackColor];
+    _arrivalButton.layer.cornerRadius = 15;
     _arrivalButton.frame = CGRectMake(30.0, CGRectGetMaxY(_departureButton.frame) + 20.0, [UIScreen mainScreen].bounds.size.width - 60.0, 60.0);
     _arrivalButton.backgroundColor = [[UIColor lightGrayColor] colorWithAlphaComponent:0.3];
     [_arrivalButton addTarget:self
