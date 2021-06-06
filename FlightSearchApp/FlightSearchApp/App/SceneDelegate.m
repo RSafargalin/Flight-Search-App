@@ -20,11 +20,18 @@
     self.window = [[UIWindow alloc] initWithFrame: windowFrame];
     [self.window makeKeyAndVisible];
     
+<<<<<<< Updated upstream
     MainViewController (*mainViewController) = [[MainViewController alloc] init];
     
     UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController: mainViewController];
     
     self.window.rootViewController = navigationController;
+=======
+    TabBarViewController (*tabBarViewController) = [[TabBarViewController alloc] init];    
+    [tabBarViewController setViewControllers: [tabBarViewController createViewControllers]];
+    
+    self.window.rootViewController = tabBarViewController;
+>>>>>>> Stashed changes
     UIWindowScene *windowsScene = (UIWindowScene *) scene;
     [self.window setWindowScene: windowsScene];    
 }
