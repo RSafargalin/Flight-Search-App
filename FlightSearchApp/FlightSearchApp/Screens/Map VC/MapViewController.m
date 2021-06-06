@@ -28,9 +28,7 @@
     [super viewDidLoad];
     
     self.title = @"Карта цен";
-    
-    
-    
+
     _mapView = [[MKMapView alloc] initWithFrame:self.view.bounds];
     _mapView.showsUserLocation = YES;
     [self.view addSubview:_mapView];
@@ -89,6 +87,5 @@
         }
     }
 }
-
 
 @end
