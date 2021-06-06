@@ -7,6 +7,8 @@
 
 #import "SceneDelegate.h"
 #import "MainViewController.h"
+#import "MapViewController.h"
+#import "TabBarViewController.h"
 
 @interface SceneDelegate ()
 
@@ -20,11 +22,24 @@
     self.window = [[UIWindow alloc] initWithFrame: windowFrame];
     [self.window makeKeyAndVisible];
     
+    TabBarViewController (*tabBarViewController) = [[TabBarViewController alloc] init];
     MainViewController (*mainViewController) = [[MainViewController alloc] init];
+    MapViewController (*mapViewController) = [[MapViewController alloc] init];
     
-    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController: mainViewController];
+    UINavigationController *mainNavController = [[UINavigationController alloc] initWithRootViewController: mainViewController];
+    mainNavController.tabBarItem.title = @"Поиск билета";
+    mainNavController.tabBarItem.image = [UIImage systemImageNamed: @"magnifyingglass"];
     
-    self.window.rootViewController = navigationController;
+    UINavigationController *mapNavController = [[UINavigationController alloc] initWithRootViewController: mapViewController];
+    
+    mapNavController.tabBarItem.title = @"Карта цен";
+    mapNavController.tabBarItem.image = [UIImage systemImageNamed: @"map"];
+    
+    NSArray *viewControllers = [[NSArray alloc] initWithObjects: mainNavController, mapNavController, nil];
+    
+    [tabBarViewController setViewControllers: viewControllers];
+    
+    self.window.rootViewController = tabBarViewController;
     UIWindowScene *windowsScene = (UIWindowScene *) scene;
     [self.window setWindowScene: windowsScene];    
 }
