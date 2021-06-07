@@ -10,7 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface MapPrice : NSObject
+@interface MapPrice : NSObject <NSCoding>
 
 @property (strong, nonatomic) City *destination;
 @property (strong, nonatomic) City *origin;

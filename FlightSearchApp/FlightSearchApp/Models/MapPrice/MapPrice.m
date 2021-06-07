@@ -36,5 +36,34 @@
 }
 
 
+- (void)encodeWithCoder:(nonnull NSCoder *)coder {
+    [coder encodeObject: self.destination forKey: @"destination"];
+    [coder encodeObject: self.origin forKey: @"origin"];
+    [coder encodeObject: self.departure forKey:@"departure"];
+    [coder encodeObject: self.returnDate forKey: @"returnDate"];
+    [coder encodeInt64: self.numberOfChanges forKey: @"numberOfChanges"];
+    [coder encodeInteger: self.value forKey: @"value"];
+    [coder encodeInt64: self.distance forKey: @"distance"];
+    [coder encodeBool: self.actual forKey: @"actual"];
+}
+
+- (nullable instancetype)initWithCoder:(nonnull NSCoder *)coder {
+    self = [super init];
+    if (!self) {
+        return nil;
+    }
+    
+    self.destination = [coder decodeObjectForKey: @"destination"];
+    self.origin = [coder decodeObjectForKey: @"origin"];
+    self.departure = [coder decodeObjectForKey: @"departure"];
+    self.returnDate = [coder decodeObjectForKey: @"returnDate"];
+    self.numberOfChanges = [coder decodeInt64ForKey: @"numberOfChanges"];
+    self.value = [coder decodeBoolForKey: @"value"];
+    self.distance = [coder decodeInt64ForKey: @"distance"];
+    self.actual = [coder decodeBoolForKey: @"actual"];
+
+    return self;
+}
+
 
 @end

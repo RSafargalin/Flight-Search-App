@@ -11,6 +11,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface TabBarViewController : UITabBarController
 
+- (NSArray<UIViewController*> *)createViewControllers;
 @end
 
 NS_ASSUME_NONNULL_END

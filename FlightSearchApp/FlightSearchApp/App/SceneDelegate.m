@@ -22,22 +22,8 @@
     self.window = [[UIWindow alloc] initWithFrame: windowFrame];
     [self.window makeKeyAndVisible];
     
-    TabBarViewController (*tabBarViewController) = [[TabBarViewController alloc] init];
-    MainViewController (*mainViewController) = [[MainViewController alloc] init];
-    MapViewController (*mapViewController) = [[MapViewController alloc] init];
-    
-    UINavigationController *mainNavController = [[UINavigationController alloc] initWithRootViewController: mainViewController];
-    mainNavController.tabBarItem.title = @"Поиск билета";
-    mainNavController.tabBarItem.image = [UIImage systemImageNamed: @"magnifyingglass"];
-    
-    UINavigationController *mapNavController = [[UINavigationController alloc] initWithRootViewController: mapViewController];
-    
-    mapNavController.tabBarItem.title = @"Карта цен";
-    mapNavController.tabBarItem.image = [UIImage systemImageNamed: @"map"];
-    
-    NSArray *viewControllers = [[NSArray alloc] initWithObjects: mainNavController, mapNavController, nil];
-    
-    [tabBarViewController setViewControllers: viewControllers];
+    TabBarViewController (*tabBarViewController) = [[TabBarViewController alloc] init];    
+    [tabBarViewController setViewControllers: [tabBarViewController createViewControllers]];
     
     self.window.rootViewController = tabBarViewController;
     UIWindowScene *windowsScene = (UIWindowScene *) scene;

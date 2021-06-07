@@ -12,6 +12,7 @@
 #import "DataManager.h"
 #import "MapPrice.h"
 #import <CoreLocation/CoreLocation.h>
+#import "CoreDataHelper.h"
 
 @interface MapViewController ()
 
@@ -29,9 +30,12 @@
     
     self.title = @"Карта цен";
     
+    
+    
     _mapView = [[MKMapView alloc] initWithFrame:self.view.bounds];
     _mapView.showsUserLocation = YES;
     [self.view addSubview:_mapView];
+    _mapView.delegate = self;
     
     [[DataManager sharedInstance] loadData];
     
@@ -74,8 +78,22 @@
             annotation.title = [NSString stringWithFormat:@"%@ (%@)", price.destination.name, price.destination.code];
             annotation.subtitle = [NSString stringWithFormat:@"%ld руб.", (long)price.value];
             annotation.coordinate = price.destination.coordinate;
+            
             [self->_mapView addAnnotation: annotation];
         });
+    }
+}
+
+
+- (void)mapView:(MKMapView *)mapView didSelectAnnotationView:(MKAnnotationView *)view {
+    
+    for (MapPrice *price in _prices) {
+        if ((view.annotation.coordinate.latitude == price.destination.coordinate.latitude) &&
+            (view.annotation.coordinate.longitude == price.destination.coordinate.longitude)) {
+            NSLog(@"Touch");
+            [[CoreDataHelper sharedInstance] favoriteMapPriceFromMapPrice: price];
+            
+        }
     }
 }
 

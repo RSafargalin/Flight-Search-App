@@ -13,6 +13,7 @@
 
 @property (nonatomic, strong) UIButton *departureButton;
 @property (nonatomic, strong) UIButton *arrivalButton;
+@property (nonatomic, strong) UIButton *searchButton;
 @property (nonatomic) SearchRequest searchRequest;
 
 @end

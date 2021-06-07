@@ -6,6 +6,9 @@
 //
 
 #import "TabBarViewController.h"
+#import "MainViewController.h"
+#import "MapViewController.h"
+#import "TicketsViewController.h"
 
 @interface TabBarViewController ()
 
@@ -16,6 +19,25 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+}
+
+- (NSArray<UIViewController*> *)createViewControllers {
+    MainViewController (*mainViewController) = [[MainViewController alloc] init];
+    MapViewController (*mapViewController) = [[MapViewController alloc] init];
+    TicketsViewController *favoriteViewController = [[TicketsViewController alloc] initFavoriteTicketsController];
+    
+    UINavigationController *mainNavController = [[UINavigationController alloc] initWithRootViewController: mainViewController];
+    mainNavController.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"Поиск билета" image:[UIImage systemImageNamed:@"magnifyingglass"] selectedImage:[UIImage systemImageNamed:@"magnifyingglass.circle"]];
+    
+    UINavigationController *mapNavController = [[UINavigationController alloc] initWithRootViewController: mapViewController];
+    mapNavController.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"Карта цен" image:[UIImage systemImageNamed:@"mappin"] selectedImage:[UIImage systemImageNamed:@"mappin.circle"]];
+    
+    UINavigationController *favNavController = [[UINavigationController alloc] initWithRootViewController:favoriteViewController];
+    favoriteViewController.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"Избранное" image:[UIImage systemImageNamed:@"star"] selectedImage:[UIImage systemImageNamed:@"star.circle"]];
+    
+    NSArray *viewControllers = [[NSArray alloc] initWithObjects: mainNavController, mapNavController, favNavController, nil];
+    
+    return viewControllers;
 }
 
 /*
