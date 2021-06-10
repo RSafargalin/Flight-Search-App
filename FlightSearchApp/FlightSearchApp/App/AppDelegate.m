@@ -6,7 +6,9 @@
 //
 
 #import "AppDelegate.h"
-#import "MainViewController.h"
+#import "TabBarViewController.h"
+
+#import <UserNotifications/UserNotifications.h>
 
 @interface AppDelegate ()
 

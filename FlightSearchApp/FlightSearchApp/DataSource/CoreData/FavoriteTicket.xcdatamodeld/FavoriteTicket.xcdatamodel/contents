@@ -16,12 +16,13 @@
         <attribute name="expires" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="flightNumber" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="from" optional="YES" attributeType="String"/>
+        <attribute name="fromMap" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES"/>
         <attribute name="price" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="returnDate" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="to" optional="YES" attributeType="String"/>
     </entity>
     <elements>
         <element name="FavoriteMapPrice" positionX="-63" positionY="54" width="128" height="134"/>
-        <element name="TicketCoreData" positionX="-63" positionY="-18" width="128" height="164"/>
+        <element name="TicketCoreData" positionX="-63" positionY="-18" width="128" height="179"/>
     </elements>
 </model>

@@ -24,6 +24,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nullable, nonatomic, copy) NSString *to;
 @property (nonatomic) int64_t price;
 @property (nonatomic) int16_t flightNumber;
+@property (nonatomic) BOOL fromMap;
 
 @end
 

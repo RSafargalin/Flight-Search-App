@@ -17,6 +17,10 @@ NS_ASSUME_NONNULL_END
 
 
 @interface TicketsViewController : UIViewController <UICollectionViewDataSource, UICollectionViewDelegate>
+
+@property (nonatomic, strong) UISegmentedControl *segmentedControl;
+
 - (instancetype)initWithTickets:(NSArray *)tickets;
 - (instancetype)initFavoriteTicketsController;
+
 @end

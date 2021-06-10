@@ -84,17 +84,51 @@
     }
 }
 
+<<<<<<< Updated upstream
+=======
 
 - (void)mapView:(MKMapView *)mapView didSelectAnnotationView:(MKAnnotationView *)view {
-    
+    MKPointAnnotation *selectedAnnotation;
+    selectedAnnotation = (MKPointAnnotation *) view.annotation;
     for (MapPrice *price in _prices) {
         if ((view.annotation.coordinate.latitude == price.destination.coordinate.latitude) &&
             (view.annotation.coordinate.longitude == price.destination.coordinate.longitude)) {
-            NSLog(@"Touch");
-            [[CoreDataHelper sharedInstance] favoriteMapPriceFromMapPrice: price];
+            Ticket *ticket = [Ticket new];
+            ticket.departure = price.departure;
+            ticket.airline = price.airline;
+            ticket.from = price.origin.code;
+            ticket.to = price.destination.code;
+            ticket.price = [NSNumber numberWithLong: price.value];
+            ticket.fromMap = YES;
+            
+            BOOL isInFavorites = [[CoreDataHelper sharedInstance] isFavorite: ticket];
+            if (isInFavorites) {
+                return;
+            }
+            
+            UIAlertController *alertController = [UIAlertController alertControllerWithTitle: @"Ticket"
+                                                                                     message: @"Please select action:"
+                                                                              preferredStyle: UIAlertControllerStyleActionSheet];
+            
+            UIAlertAction *favoriteAction = [UIAlertAction actionWithTitle: @"Add to Favorites"
+                                                                     style: UIAlertActionStyleDefault
+                                                                   handler:^(UIAlertAction * _Nonnull action) {
+                [[CoreDataHelper sharedInstance] addToFavorite: ticket];
+            }];
+            
+            UIAlertAction *cancelAction = [UIAlertAction actionWithTitle: @"Cancel"
+                                                                   style: UIAlertActionStyleCancel
+                                                                 handler: nil];
+            
+            [alertController addAction: favoriteAction];
+            [alertController addAction: cancelAction];
+            [self presentViewController: alertController
+                               animated: YES
+                             completion: nil];
             
         }
     }
 }
 
+>>>>>>> Stashed changes
 @end

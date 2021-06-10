@@ -19,6 +19,7 @@
         _flightNumber = [dictionary valueForKey:@"flight_number"];
         _price = [dictionary valueForKey:@"price"];
         _returnDate = dateFromString([dictionary valueForKey:@"return_at"]);
+        
     }
     return self;
 }

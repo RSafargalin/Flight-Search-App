@@ -23,5 +23,6 @@
 @dynamic to;
 @dynamic price;
 @dynamic flightNumber;
+@dynamic fromMap;
 
 @end

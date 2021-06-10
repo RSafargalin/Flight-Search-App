@@ -18,10 +18,8 @@
 + (instancetype)sharedInstance;
 
 - (BOOL)isFavorite:(Ticket *)ticket;
-- (NSArray *)favorites;
+- (NSArray *)favoritesFromMap: (BOOL)fromMap;
 - (void)addToFavorite:(Ticket *)ticket;
 - (void)removeFromFavorite:(Ticket *)ticket;
-
-- (FavoriteMapPrice *)favoriteMapPriceFromMapPrice: (MapPrice *) mapPrice;
 
 @end

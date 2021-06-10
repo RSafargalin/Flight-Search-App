@@ -15,8 +15,12 @@
 		FE1AD9C326510787008D9EB7 /* cities.json in Resources */ = {isa = PBXBuildFile; fileRef = FE1AD9C026510787008D9EB7 /* cities.json */; };
 		FE1AD9C426510787008D9EB7 /* countries.json in Resources */ = {isa = PBXBuildFile; fileRef = FE1AD9C126510787008D9EB7 /* countries.json */; };
 		FE42F1E5265A658F003AF487 /* PointCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FE42F1E4265A658F003AF487 /* PointCell.m */; };
+<<<<<<< Updated upstream
+=======
 		FE512730266E753C00A20B98 /* FavoriteMapPrice+CoreDataClass.m in Sources */ = {isa = PBXBuildFile; fileRef = FE51272E266E753C00A20B98 /* FavoriteMapPrice+CoreDataClass.m */; };
 		FE512731266E753C00A20B98 /* FavoriteMapPrice+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = FE51272F266E753C00A20B98 /* FavoriteMapPrice+CoreDataProperties.m */; };
+		FE51273A26713C6E00A20B98 /* NotificationCenter.m in Sources */ = {isa = PBXBuildFile; fileRef = FE51273926713C6E00A20B98 /* NotificationCenter.m */; };
+>>>>>>> Stashed changes
 		FE897AC92650FEE200DBA615 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FE897AC82650FEE200DBA615 /* AppDelegate.m */; };
 		FE897ACC2650FEE200DBA615 /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FE897ACB2650FEE200DBA615 /* SceneDelegate.m */; };
 		FE897ACF2650FEE200DBA615 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FE897ACE2650FEE200DBA615 /* MainViewController.m */; };
@@ -52,10 +56,15 @@
 		FE1AD9C126510787008D9EB7 /* countries.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = countries.json; sourceTree = "<group>"; };
 		FE42F1E3265A658F003AF487 /* PointCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PointCell.h; sourceTree = "<group>"; };
 		FE42F1E4265A658F003AF487 /* PointCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PointCell.m; sourceTree = "<group>"; };
+<<<<<<< Updated upstream
+=======
 		FE51272C266E753C00A20B98 /* FavoriteMapPrice+CoreDataProperties.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "FavoriteMapPrice+CoreDataProperties.h"; sourceTree = "<group>"; };
 		FE51272D266E753C00A20B98 /* FavoriteMapPrice+CoreDataClass.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "FavoriteMapPrice+CoreDataClass.h"; sourceTree = "<group>"; };
 		FE51272E266E753C00A20B98 /* FavoriteMapPrice+CoreDataClass.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "FavoriteMapPrice+CoreDataClass.m"; sourceTree = "<group>"; };
 		FE51272F266E753C00A20B98 /* FavoriteMapPrice+CoreDataProperties.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "FavoriteMapPrice+CoreDataProperties.m"; sourceTree = "<group>"; };
+		FE51273826713C6E00A20B98 /* NotificationCenter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NotificationCenter.h; sourceTree = "<group>"; };
+		FE51273926713C6E00A20B98 /* NotificationCenter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NotificationCenter.m; sourceTree = "<group>"; };
+>>>>>>> Stashed changes
 		FE897AC42650FEE200DBA615 /* FlightSearchApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FlightSearchApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FE897AC72650FEE200DBA615 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		FE897AC82650FEE200DBA615 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -156,7 +165,11 @@
 		FE1AD9BA265105C9008D9EB7 /* Services & Managers */ = {
 			isa = PBXGroup;
 			children = (
+<<<<<<< Updated upstream
+=======
+				FE51273726713C5E00A20B98 /* NotificationCenter */,
 				FEEC4973266CBB0300D030A4 /* Core Data Helper */,
+>>>>>>> Stashed changes
 				FEFCE82E26640916009B2BCE /* Network Service */,
 				FEFCE82A2664088A009B2BCE /* Location Service */,
 				FE1AD9BB265105E0008D9EB7 /* Data Manager */,
@@ -182,6 +195,8 @@
 			path = Cell;
 			sourceTree = "<group>";
 		};
+<<<<<<< Updated upstream
+=======
 		FE512729266E6CBE00A20B98 /* Ticket */ = {
 			isa = PBXGroup;
 			children = (
@@ -211,6 +226,16 @@
 			path = City;
 			sourceTree = "<group>";
 		};
+		FE51273726713C5E00A20B98 /* NotificationCenter */ = {
+			isa = PBXGroup;
+			children = (
+				FE51273826713C6E00A20B98 /* NotificationCenter.h */,
+				FE51273926713C6E00A20B98 /* NotificationCenter.m */,
+			);
+			path = NotificationCenter;
+			sourceTree = "<group>";
+		};
+>>>>>>> Stashed changes
 		FE897ABB2650FEE200DBA615 = {
 			isa = PBXGroup;
 			children = (
@@ -487,9 +512,13 @@
 				FE1AD9B626510480008D9EB7 /* City.m in Sources */,
 				FEFCE83526640990009B2BCE /* Ticket.m in Sources */,
 				FE897ADA2650FEE300DBA615 /* main.m in Sources */,
+<<<<<<< Updated upstream
+=======
+				FE51273A26713C6E00A20B98 /* NotificationCenter.m in Sources */,
 				FEEC4984266CC15700D030A4 /* TicketCoreData+CoreDataClass.m in Sources */,
 				FE512730266E753C00A20B98 /* FavoriteMapPrice+CoreDataClass.m in Sources */,
 				FEEC4976266CBB1800D030A4 /* CoreDataHelper.m in Sources */,
+>>>>>>> Stashed changes
 				FEFCE839266409CA009B2BCE /* MapPrice.m in Sources */,
 				FE1AD9BE265105ED008D9EB7 /* DataManager.m in Sources */,
 				FEFCE83126640923009B2BCE /* NetworkService.m in Sources */,
