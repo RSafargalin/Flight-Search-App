@@ -9,6 +9,7 @@
 #import "MainViewController.h"
 #import "MapViewController.h"
 #import "TabBarViewController.h"
+#import "NotificationCenter.h"
 
 @interface SceneDelegate ()
 
@@ -22,13 +23,19 @@
     self.window = [[UIWindow alloc] initWithFrame: windowFrame];
     [self.window makeKeyAndVisible];
     
-
     TabBarViewController (*tabBarViewController) = [[TabBarViewController alloc] init];    
     [tabBarViewController setViewControllers: [tabBarViewController createViewControllers]];
     
+    if ([connectionOptions.notificationResponse.notification.request.content.categoryIdentifier containsString: @"AviaTicket"]) {
+        tabBarViewController.selectedIndex = 2;
+    } else {
+        tabBarViewController.selectedIndex = 0;
+    }
+    
     self.window.rootViewController = tabBarViewController;
     UIWindowScene *windowsScene = (UIWindowScene *) scene;
-    [self.window setWindowScene: windowsScene];    
+    [self.window setWindowScene: windowsScene];
+    [[NotificationCenter sharedInstance] registerService];
 }
 
 
@@ -63,6 +70,7 @@
     // Use this method to save data, release shared resources, and store enough scene-specific state information
     // to restore the scene back to its current state.
 }
+
 
 
 @end

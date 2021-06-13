@@ -10,7 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface MapPrice : NSObject
+@interface MapPrice : NSObject <NSCoding>
 
 @property (strong, nonatomic) City *destination;
 @property (strong, nonatomic) City *origin;
@@ -20,7 +20,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic) NSInteger value;
 @property (nonatomic) NSInteger distance;
 @property (nonatomic) BOOL actual;
-
+@property (nonatomic) NSString *airline;
 - (instancetype)initWithDictionary:(NSDictionary *)dictionary withOrigin: (City *)origin;
 
 @end

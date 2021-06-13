@@ -39,15 +39,3 @@ typedef enum PlaceType {
 - (instancetype)initWithType:(PlaceType)type;
 
 @end
-
-/*
- [_searchBar.topAnchor constraintEqualToAnchor: self.view.safeAreaLayoutGuide.topAnchor].active = YES;
- [_searchBar.leadingAnchor constraintEqualToAnchor: self.view.leadingAnchor].active = YES;
- [_searchBar.trailingAnchor constraintEqualToAnchor:self.view.trailingAnchor].active = YES;
- [_searchBar.heightAnchor constraintEqualToConstant: 44].active = YES;
- 
- [_tableView.topAnchor constraintEqualToAnchor: _searchBar.bottomAnchor].active = YES;
- [_tableView.leadingAnchor constraintEqualToAnchor: self.view.leadingAnchor].active = YES;
- [_tableView.trailingAnchor constraintEqualToAnchor:self.view.trailingAnchor].active = YES;
- [_tableView.bottomAnchor constraintEqualToAnchor: self.view.bottomAnchor].active = YES;
- */

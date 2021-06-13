@@ -17,6 +17,7 @@
 @property (nonatomic, strong) NSDate *returnDate;
 @property (nonatomic, strong) NSString *from;
 @property (nonatomic, strong) NSString *to;
+@property (nonatomic) BOOL fromMap;
 
 - (instancetype)initWithDictionary:(NSDictionary *)dictionary;
 

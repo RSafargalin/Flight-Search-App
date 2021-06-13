@@ -52,9 +52,10 @@
     }
 }
 
-- (TicketCoreData *)favoriteFromTicket:(Ticket *)ticket {
+- (TicketCoreData *)favoriteFromTicket:(Ticket *)ticket{
     NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"TicketCoreData"];
-    request.predicate = [NSPredicate predicateWithFormat:@"price == %ld AND airline == %@ AND from == %@ AND to == %@ AND departure == %@ AND expires == %@ AND flightNumber == %ld", (long)ticket.price.integerValue, ticket.airline, ticket.from, ticket.to, ticket.departure, ticket.expires, (long)ticket.flightNumber.integerValue];
+    request.predicate = [NSPredicate predicateWithFormat:@"price == %ld AND airline == %@ AND from == %@ AND to == %@ AND departure == %@ AND expires == %@ AND flightNumber == %ld AND fromMap == %d", (long)ticket.price.integerValue, ticket.airline, ticket.from, ticket.to, ticket.departure, ticket.expires, (long)ticket.flightNumber.integerValue, ticket.fromMap];
+
     return [[_managedObjectContext executeFetchRequest:request error:nil] firstObject];
 }
 
@@ -72,6 +73,9 @@
     favorite.returnDate = ticket.returnDate;
     favorite.from = ticket.from;
     favorite.to = ticket.to;
+
+    favorite.fromMap = ticket.fromMap;
+
     favorite.created = [NSDate date];
     [self save];
 }
@@ -83,11 +87,13 @@
         [self save];
     }
 }
-
-- (NSArray *)favorites {
+- (NSArray *)favoritesFromMap: (BOOL)fromMap {
     NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"TicketCoreData"];
     request.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"created" ascending:NO]];
-    return [_managedObjectContext executeFetchRequest:request error:nil];
+    NSArray *tickets = [_managedObjectContext executeFetchRequest:request error:nil];
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"SELF.fromMap == %d", fromMap];
+    return [tickets filteredArrayUsingPredicate: predicate];
+
 }
 
 @end

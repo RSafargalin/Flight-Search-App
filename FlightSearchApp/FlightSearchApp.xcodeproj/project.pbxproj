@@ -15,6 +15,7 @@
 		FE1AD9C326510787008D9EB7 /* cities.json in Resources */ = {isa = PBXBuildFile; fileRef = FE1AD9C026510787008D9EB7 /* cities.json */; };
 		FE1AD9C426510787008D9EB7 /* countries.json in Resources */ = {isa = PBXBuildFile; fileRef = FE1AD9C126510787008D9EB7 /* countries.json */; };
 		FE42F1E5265A658F003AF487 /* PointCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FE42F1E4265A658F003AF487 /* PointCell.m */; };
+
 		FE897AC92650FEE200DBA615 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FE897AC82650FEE200DBA615 /* AppDelegate.m */; };
 		FE897ACC2650FEE200DBA615 /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FE897ACB2650FEE200DBA615 /* SceneDelegate.m */; };
 		FE897ACF2650FEE200DBA615 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FE897ACE2650FEE200DBA615 /* MainViewController.m */; };
@@ -29,6 +30,13 @@
 		FEEC4985266CC15700D030A4 /* TicketCoreData+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = FEEC4983266CC15700D030A4 /* TicketCoreData+CoreDataProperties.m */; };
 		FEED1F04266543C700CBD33A /* TicketsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FEED1F03266543C700CBD33A /* TicketsViewController.m */; };
 		FEED1F082665440900CBD33A /* TicketCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FEED1F072665440900CBD33A /* TicketCell.m */; };
+
+		FEFCE82826640848009B2BCE /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FEFCE82726640848009B2BCE /* MapViewController.m */; };
+		FEFCE82D266408A1009B2BCE /* LocationService.m in Sources */ = {isa = PBXBuildFile; fileRef = FEFCE82C266408A1009B2BCE /* LocationService.m */; };
+		FEFCE83126640923009B2BCE /* NetworkService.m in Sources */ = {isa = PBXBuildFile; fileRef = FEFCE83026640923009B2BCE /* NetworkService.m */; };
+		FEFCE83526640990009B2BCE /* Ticket.m in Sources */ = {isa = PBXBuildFile; fileRef = FEFCE83426640990009B2BCE /* Ticket.m */; };
+		FEFCE839266409CA009B2BCE /* MapPrice.m in Sources */ = {isa = PBXBuildFile; fileRef = FEFCE838266409CA009B2BCE /* MapPrice.m */; };
+		FEFCE83D2664129B009B2BCE /* TabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FEFCE83C2664129B009B2BCE /* TabBarViewController.m */; };
 
 /* End PBXBuildFile section */
 
@@ -46,6 +54,7 @@
 		FE1AD9C126510787008D9EB7 /* countries.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = countries.json; sourceTree = "<group>"; };
 		FE42F1E3265A658F003AF487 /* PointCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PointCell.h; sourceTree = "<group>"; };
 		FE42F1E4265A658F003AF487 /* PointCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PointCell.m; sourceTree = "<group>"; };
+
 		FE897AC42650FEE200DBA615 /* FlightSearchApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FlightSearchApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FE897AC72650FEE200DBA615 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		FE897AC82650FEE200DBA615 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -71,6 +80,19 @@
 		FEED1F03266543C700CBD33A /* TicketsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TicketsViewController.m; sourceTree = "<group>"; };
 		FEED1F062665440900CBD33A /* TicketCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TicketCell.h; sourceTree = "<group>"; };
 		FEED1F072665440900CBD33A /* TicketCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TicketCell.m; sourceTree = "<group>"; };
+
+		FEFCE82626640848009B2BCE /* MapViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MapViewController.h; sourceTree = "<group>"; };
+		FEFCE82726640848009B2BCE /* MapViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
+		FEFCE82B266408A1009B2BCE /* LocationService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LocationService.h; sourceTree = "<group>"; };
+		FEFCE82C266408A1009B2BCE /* LocationService.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LocationService.m; sourceTree = "<group>"; };
+		FEFCE82F26640923009B2BCE /* NetworkService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NetworkService.h; sourceTree = "<group>"; };
+		FEFCE83026640923009B2BCE /* NetworkService.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NetworkService.m; sourceTree = "<group>"; };
+		FEFCE83326640990009B2BCE /* Ticket.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Ticket.h; sourceTree = "<group>"; };
+		FEFCE83426640990009B2BCE /* Ticket.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Ticket.m; sourceTree = "<group>"; };
+		FEFCE837266409CA009B2BCE /* MapPrice.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MapPrice.h; sourceTree = "<group>"; };
+		FEFCE838266409CA009B2BCE /* MapPrice.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MapPrice.m; sourceTree = "<group>"; };
+		FEFCE83B2664129B009B2BCE /* TabBarViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TabBarViewController.h; sourceTree = "<group>"; };
+		FEFCE83C2664129B009B2BCE /* TabBarViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TabBarViewController.m; sourceTree = "<group>"; };
 
 /* End PBXFileReference section */
 
@@ -136,8 +158,9 @@
 		FE1AD9BA265105C9008D9EB7 /* Services & Managers */ = {
 			isa = PBXGroup;
 			children = (
-
+				FE51273726713C5E00A20B98 /* NotificationCenter */,
 				FEEC4973266CBB0300D030A4 /* Core Data Helper */,
+
 				FEFCE82E26640916009B2BCE /* Network Service */,
 				FEFCE82A2664088A009B2BCE /* Location Service */,
 
@@ -261,10 +284,9 @@
 		FEEC496C266CB9D200D030A4 /* CoreData */ = {
 			isa = PBXGroup;
 			children = (
-				FEEC4980266CC15700D030A4 /* TicketCoreData+CoreDataProperties.h */,
-				FEEC4981266CC15700D030A4 /* TicketCoreData+CoreDataClass.h */,
-				FEEC4982266CC15700D030A4 /* TicketCoreData+CoreDataClass.m */,
-				FEEC4983266CC15700D030A4 /* TicketCoreData+CoreDataProperties.m */,
+				FE51272B266E6CDC00A20B98 /* City */,
+				FE51272A266E6CCB00A20B98 /* MapPrice */,
+				FE512729266E6CBE00A20B98 /* Ticket */,
 				FEEC4969266CB9CF00D030A4 /* FavoriteTicket.xcdatamodeld */,
 			);
 			path = CoreData;
@@ -442,14 +464,13 @@
 				FE1AD9B626510480008D9EB7 /* City.m in Sources */,
 				FEFCE83526640990009B2BCE /* Ticket.m in Sources */,
 				FE897ADA2650FEE300DBA615 /* main.m in Sources */,
-				FEEC4984266CC15700D030A4 /* TicketCoreData+CoreDataClass.m in Sources */,
-				FEEC4976266CBB1800D030A4 /* CoreDataHelper.m in Sources */,
 				FEFCE839266409CA009B2BCE /* MapPrice.m in Sources */,
 				FE1AD9BE265105ED008D9EB7 /* DataManager.m in Sources */,
 				FEFCE83126640923009B2BCE /* NetworkService.m in Sources */,
 				FEFCE83D2664129B009B2BCE /* TabBarViewController.m in Sources */,
 				FE897ACC2650FEE200DBA615 /* SceneDelegate.m in Sources */,
 				FE1AD9B02651043C008D9EB7 /* Country.m in Sources */,
+				FE512731266E753C00A20B98 /* FavoriteMapPrice+CoreDataProperties.m in Sources */,
 				FEFCE82826640848009B2BCE /* MapViewController.m in Sources */,
 				FEEC4985266CC15700D030A4 /* TicketCoreData+CoreDataProperties.m in Sources */,
 				FEEC496B266CB9CF00D030A4 /* FavoriteTicket.xcdatamodeld in Sources */,
