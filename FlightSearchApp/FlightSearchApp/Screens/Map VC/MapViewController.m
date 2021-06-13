@@ -28,17 +28,16 @@
     [super viewDidLoad];
     
     self.title = @"Карта цен";
-    
+
     _mapView = [[MKMapView alloc] initWithFrame:self.view.bounds];
     _mapView.showsUserLocation = YES;
     [self.view addSubview:_mapView];
-    
+    _mapView.delegate = self;
     [[DataManager sharedInstance] loadData];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(dataLoadedSuccessfully) name:kDataManagerLoadDataDidComplete object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateCurrentLocation:) name:kLocationServiceDidUpdateCurrentLocation object:nil];
 }
-
 - (void)dealloc {
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
@@ -76,6 +75,16 @@
             annotation.coordinate = price.destination.coordinate;
             [self->_mapView addAnnotation: annotation];
         });
+    }
+}
+
+- (void)mapView:(MKMapView *)mapView didSelectAnnotationView:(MKAnnotationView *)view {
+    for (MapPrice * price in _prices) {
+        if ((price.destination.coordinate.latitude == view.annotation.coordinate.latitude) &&
+            (price.destination.coordinate.longitude == view.annotation.coordinate.longitude)) {
+            NSLog(@"SelectAV: %@", view.annotation.title);
+            
+        }
     }
 }
 
