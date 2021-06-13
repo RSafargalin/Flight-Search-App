@@ -75,7 +75,7 @@
 }
 
 - (void) segmentedControlSetup {
-    _segmentedControl = [[UISegmentedControl alloc] initWithItems:@[@"Города", @"Аэропорты"]];
+    _segmentedControl = [[UISegmentedControl alloc] initWithItems:@[NSLocalizedString(@"Cities", @""), NSLocalizedString(@"Airports", @"")]];
     [_segmentedControl addTarget:self
                           action:@selector(changeSource)
                 forControlEvents:UIControlEventValueChanged];
@@ -88,9 +88,9 @@
 
 - (void) placeTypeChange {
     if (_placeType == PlaceTypeDeparture) {
-        self.title = @"Откуда";
+        self.title = NSLocalizedString(@"From where", @"");
     } else {
-        self.title = @"Куда";
+        self.title = NSLocalizedString(@"Where to", @"");
     }
 }
 

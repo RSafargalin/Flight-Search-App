@@ -30,7 +30,7 @@
 - (void) setup {
     self.view.backgroundColor = [UIColor whiteColor];
     self.navigationController.navigationBar.prefersLargeTitles = YES;
-    self.title = @"Поиск";
+    self.title = NSLocalizedString(@"Search", @"");
     [self departureButtonSetup];
     [self arrivalButtonSetup];
     [self searchButtonSetup];
@@ -38,7 +38,7 @@
 
 - (void) departureButtonSetup {
     _departureButton = [UIButton buttonWithType:UIButtonTypeSystem];
-    [_departureButton setTitle:@"Откуда" forState: UIControlStateNormal];
+    [_departureButton setTitle: NSLocalizedString(@"From where", @"") forState: UIControlStateNormal];
     _departureButton.tintColor = [UIColor blackColor];
 
     _departureButton.layer.cornerRadius = 10;
@@ -53,7 +53,7 @@
 
 - (void) arrivalButtonSetup {
     _arrivalButton = [UIButton buttonWithType:UIButtonTypeSystem];
-    [_arrivalButton setTitle:@"Куда" forState: UIControlStateNormal];
+    [_arrivalButton setTitle: NSLocalizedString(@"Where to", @"") forState: UIControlStateNormal];
     _arrivalButton.tintColor = [UIColor blackColor];
     _arrivalButton.layer.cornerRadius = 10;
     _arrivalButton.frame = CGRectMake(30.0, CGRectGetMaxY(_departureButton.frame) + 20.0, [UIScreen mainScreen].bounds.size.width - 60.0, 60.0);
@@ -66,7 +66,7 @@
 
 - (void) searchButtonSetup {
     _searchButton = [UIButton buttonWithType:UIButtonTypeSystem];
-    [_searchButton setTitle:@"Найти" forState:UIControlStateNormal];
+    [_searchButton setTitle: NSLocalizedString(@"To find", @"") forState:UIControlStateNormal];
     _searchButton.tintColor = [UIColor whiteColor];
     _searchButton.frame = CGRectMake(30.0, CGRectGetMaxY(_arrivalButton.frame) + 20, [UIScreen mainScreen].bounds.size.width - 60.0, 60.0);
     _searchButton.backgroundColor = [UIColor blackColor];
@@ -92,7 +92,7 @@
 - (void)searchButtonDidTap:(UIButton *)sender {
     [_searchButton setEnabled: NO];
     if (_searchRequest.destionation == NULL || _searchRequest.origin == NULL) {
-        [self showAlert: self with: @"Ooops!" with: @"Вы не выбрали направление" and: @"Ok" completion:^(UIAlertAction *action) {
+        [self showAlert: self with: NSLocalizedString(@"Ooops!", @"") with: NSLocalizedString(@"You have not chosen a direction", @"") and: NSLocalizedString(@"Ok", @"") completion:^(UIAlertAction *action) {
             [self->_searchButton setEnabled: YES];
         }];
         return;
@@ -103,7 +103,7 @@
             [self->_searchButton setEnabled: YES];
             [self.navigationController showViewController:ticketsViewController sender:self];
         } else {
-            [self showAlert: self with: @"Ooops!" with: @"Билеты по данному направлению не найдены" and: @"Ok" completion:^(UIAlertAction *action) {
+            [self showAlert: self with: NSLocalizedString(@"Ooops!", @"") with: NSLocalizedString(@"No tickets found for this direction", @"") and: NSLocalizedString(@"Ok", @"") completion:^(UIAlertAction *action) {
                 [self->_searchButton setEnabled: YES];
             }];
         }

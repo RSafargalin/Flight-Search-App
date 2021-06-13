@@ -34,7 +34,7 @@ TicketCell *notificationCell;
 //        [self defaultInit];
         isFavorites = YES;
         [self navigationControllerSetup];
-        self.title = @"Избранное";
+        self.title = NSLocalizedString(@"favorites", @"");
         UICollectionViewFlowLayout *layout = [UICollectionViewFlowLayout new];
         layout.minimumLineSpacing = 10.0;
         layout.minimumInteritemSpacing = 50.0;
@@ -58,7 +58,7 @@ TicketCell *notificationCell;
     if (self)
     {
         _tickets = tickets;
-        self.title = @"Билеты";
+        self.title = NSLocalizedString(@"tickets", @"");
         isFavorites = NO;
         UICollectionViewFlowLayout *layout = [UICollectionViewFlowLayout new];
         layout.minimumLineSpacing = 10.0;
@@ -125,7 +125,7 @@ TicketCell *notificationCell;
 }
 
 - (void) segmentedControlSetup {
-    _segmentedControl = [[UISegmentedControl alloc] initWithItems:@[@"In search", @"On map"]];
+    _segmentedControl = [[UISegmentedControl alloc] initWithItems:@[NSLocalizedString(@"inSearch", @""), NSLocalizedString(@"onMap", @"")]];
     [_segmentedControl addTarget:self
                           action:@selector(changeSource)
                 forControlEvents:UIControlEventValueChanged];
@@ -169,24 +169,35 @@ TicketCell *notificationCell;
 
 - (void)collectionView:(UICollectionView *)collectionView didDeselectItemAtIndexPath:(NSIndexPath *)indexPath {
     if (isFavorites) return;
-    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Действия с билетом" message:@"Что необходимо сделать с выбранным билетом?" preferredStyle:UIAlertControllerStyleActionSheet];
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle: NSLocalizedString(@"ticketActions", @"")
+                                                                             message: NSLocalizedString(@"What should be done with the selected ticket?", @"")
+                                                                      preferredStyle: UIAlertControllerStyleActionSheet];
+    
     UIAlertAction *favoriteAction;
     if ([[CoreDataHelper sharedInstance] isFavorite: [_tickets objectAtIndex:indexPath.row]]) {
-        favoriteAction = [UIAlertAction actionWithTitle:@"Удалить из избранного" style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {
+        favoriteAction = [UIAlertAction actionWithTitle: NSLocalizedString(@"Remove from favorites", @"")
+                                                  style: UIAlertActionStyleDestructive
+                                                handler: ^(UIAlertAction * _Nonnull action) {
             [[CoreDataHelper sharedInstance] removeFromFavorite:[self->_tickets objectAtIndex:indexPath.row]];
         }];
     } else {
-        favoriteAction = [UIAlertAction actionWithTitle:@"Добавить в избранное" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        favoriteAction = [UIAlertAction actionWithTitle: NSLocalizedString(@"Add to favourites", @"")
+                                                  style: UIAlertActionStyleDefault
+                                                handler: ^(UIAlertAction * _Nonnull action) {
             [[CoreDataHelper sharedInstance] addToFavorite:[self->_tickets objectAtIndex:indexPath.row]];
         }];
     }
     
-    UIAlertAction *notificationAction = [UIAlertAction actionWithTitle:@"Напомнить" style:(UIAlertActionStyleDefault) handler:^(UIAlertAction * _Nonnull action) {
+    UIAlertAction *notificationAction = [UIAlertAction actionWithTitle: NSLocalizedString(@"Remind", @"")
+                                                                 style: (UIAlertActionStyleDefault)
+                                                               handler: ^(UIAlertAction * _Nonnull action) {
         notificationCell = [collectionView cellForItemAtIndexPath:indexPath];
         [self->_dateTextField becomeFirstResponder];
         }];
     
-    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"Закрыть" style:UIAlertActionStyleCancel handler:nil];
+    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle: NSLocalizedString(@"Close", @"")
+                                                           style: UIAlertActionStyleCancel
+                                                         handler: nil];
     [alertController addAction:favoriteAction];
     [alertController addAction:notificationAction];
     [alertController addAction:cancelAction];
@@ -224,14 +235,16 @@ TicketCell *notificationCell;
 - (void)doneButtonDidTap:(UIBarButtonItem *)sender
 {
     if (_datePicker.date && notificationCell) {
-        NSString *message = [NSString stringWithFormat:@"%@ - %@ за %@ руб.", notificationCell.ticket.from, notificationCell.ticket.to, notificationCell.ticket.price];
+        NSString *message = [NSString stringWithFormat: NSLocalizedString(@"%@ - %@ for %@ ₽.", @""), notificationCell.ticket.from, notificationCell.ticket.to, notificationCell.ticket.price];
 
         NSURL *imageURL;
-        Notification notification = NotificationMake(@"Напоминание о билете", message, _datePicker.date, imageURL);
+        Notification notification = NotificationMake(NSLocalizedString(@"Ticket reminder", @""), message, _datePicker.date, imageURL);
         [[NotificationCenter sharedInstance] sendNotification:notification];
 
-        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Успешно" message:[NSString stringWithFormat:@"Уведомление будет отправлено - %@", _datePicker.date] preferredStyle:(UIAlertControllerStyleAlert)];
-        UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"Закрыть" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"Successfully", @"") message:[NSString stringWithFormat: NSLocalizedString(@"Notification will be sent -%@", @""), _datePicker.date] preferredStyle:(UIAlertControllerStyleAlert)];
+        UIAlertAction *cancelAction = [UIAlertAction actionWithTitle: NSLocalizedString(@"Close", @"")
+                                                               style: UIAlertActionStyleCancel
+                                                             handler: ^(UIAlertAction * _Nonnull action) {
             self->_dateTextField.canResignFirstResponder;
             self->_dateTextField.hidden = YES;
         }];

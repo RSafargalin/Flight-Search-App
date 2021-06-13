@@ -28,7 +28,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.title = @"Карта цен";
+    self.title = NSLocalizedString(@"Map price", @"");
     _mapView = [[MKMapView alloc] initWithFrame:self.view.bounds];
     _mapView.showsUserLocation = YES;
     [self.view addSubview:_mapView];
@@ -71,7 +71,7 @@
         dispatch_async(dispatch_get_main_queue(), ^{
             MKPointAnnotation *annotation = [[MKPointAnnotation alloc] init];
             annotation.title = [NSString stringWithFormat:@"%@ (%@)", price.destination.name, price.destination.code];
-            annotation.subtitle = [NSString stringWithFormat:@"%ld руб.", (long)price.value];
+            annotation.subtitle = [NSString stringWithFormat:@"%ld ₽.", (long)price.value];
             annotation.coordinate = price.destination.coordinate;
             
             [self->_mapView addAnnotation: annotation];

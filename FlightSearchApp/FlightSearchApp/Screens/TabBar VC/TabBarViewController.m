@@ -27,13 +27,13 @@
     TicketsViewController *favoriteViewController = [[TicketsViewController alloc] initFavoriteTicketsController];
     
     UINavigationController *mainNavController = [[UINavigationController alloc] initWithRootViewController: mainViewController];
-    mainNavController.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"Поиск билета" image:[UIImage systemImageNamed:@"magnifyingglass"] selectedImage:[UIImage systemImageNamed:@"magnifyingglass.circle"]];
+    mainNavController.tabBarItem = [[UITabBarItem alloc] initWithTitle: NSLocalizedString(@"Search ticket", @"") image:[UIImage systemImageNamed:@"magnifyingglass"] selectedImage:[UIImage systemImageNamed:@"magnifyingglass.circle"]];
     
     UINavigationController *mapNavController = [[UINavigationController alloc] initWithRootViewController: mapViewController];
-    mapNavController.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"Карта цен" image:[UIImage systemImageNamed:@"mappin"] selectedImage:[UIImage systemImageNamed:@"mappin.circle"]];
+    mapNavController.tabBarItem = [[UITabBarItem alloc] initWithTitle: NSLocalizedString(@"Map price", @"") image:[UIImage systemImageNamed:@"mappin"] selectedImage:[UIImage systemImageNamed:@"mappin.circle"]];
     
     UINavigationController *favNavController = [[UINavigationController alloc] initWithRootViewController:favoriteViewController];
-    favoriteViewController.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"Избранное" image:[UIImage systemImageNamed:@"star"] selectedImage:[UIImage systemImageNamed:@"star.circle"]];
+    favoriteViewController.tabBarItem = [[UITabBarItem alloc] initWithTitle: NSLocalizedString(@"Favorites", @"") image:[UIImage systemImageNamed:@"star"] selectedImage:[UIImage systemImageNamed:@"star.circle"]];
     
     NSArray *viewControllers = [[NSArray alloc] initWithObjects: mainNavController, mapNavController, favNavController, nil];
     
