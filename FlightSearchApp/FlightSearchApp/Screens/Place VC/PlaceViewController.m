@@ -12,7 +12,7 @@
 #define ReuseIdentifier @"CellIdentifier"
 
 @interface PlaceViewController ()
-
+    @property NSMutableArray *dataSource;
 @end
 
 @implementation PlaceViewController
@@ -21,8 +21,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    _dataSource = [[NSMutableArray alloc]init];
     [self navigationControllerSetup];
+    [self searchBarSetup];
     [self tableViewSetup];
     [self segmentedControlSetup];
     [self placeTypeChange];
@@ -42,6 +43,20 @@
 
 - (void) navigationControllerSetup {
     self.navigationController.navigationBar.tintColor = [UIColor blackColor];
+    self.navigationController.view.backgroundColor = [UIColor systemBackgroundColor];
+}
+
+- (void) searchBarSetup {
+    _searchBar = [[UISearchBar alloc] initWithFrame: CGRectMake(0, 0, self.view.bounds.size.width, 44)];
+    _searchBar.delegate = self;
+    _searchBar.autocapitalizationType = UITextAutocapitalizationTypeNone;
+    
+    _searchBar.translatesAutoresizingMaskIntoConstraints = NO;
+    [self.view addSubview: _searchBar];
+    [_searchBar.topAnchor constraintEqualToAnchor: self.view.safeAreaLayoutGuide.topAnchor].active = YES;
+    [_searchBar.leadingAnchor constraintEqualToAnchor: self.view.leadingAnchor].active = YES;
+    [_searchBar.trailingAnchor constraintEqualToAnchor:self.view.trailingAnchor].active = YES;
+    [_searchBar.heightAnchor constraintEqualToConstant: 44].active = YES;
 }
 
 - (void) tableViewSetup {
@@ -50,11 +65,17 @@
                   style: UITableViewStylePlain];
     _tableView.delegate = self;
     _tableView.dataSource = self;
+    _tableView.translatesAutoresizingMaskIntoConstraints = NO;
     [self.view addSubview:_tableView];
+    
+    [_tableView.topAnchor constraintEqualToAnchor: _searchBar.bottomAnchor].active = YES;
+    [_tableView.leadingAnchor constraintEqualToAnchor: self.view.leadingAnchor].active = YES;
+    [_tableView.trailingAnchor constraintEqualToAnchor:self.view.trailingAnchor].active = YES;
+    [_tableView.bottomAnchor constraintEqualToAnchor: self.view.bottomAnchor].active = YES;
 }
 
 - (void) segmentedControlSetup {
-    _segmentedControl = [[UISegmentedControl alloc] initWithItems:@[@"Города", @"Аэропорты"]];
+    _segmentedControl = [[UISegmentedControl alloc] initWithItems:@[NSLocalizedString(@"Cities", @""), NSLocalizedString(@"Airports", @"")]];
     [_segmentedControl addTarget:self
                           action:@selector(changeSource)
                 forControlEvents:UIControlEventValueChanged];
@@ -67,19 +88,23 @@
 
 - (void) placeTypeChange {
     if (_placeType == PlaceTypeDeparture) {
-        self.title = @"Откуда";
+        self.title = NSLocalizedString(@"From where", @"");
     } else {
-        self.title = @"Куда";
+        self.title = NSLocalizedString(@"Where to", @"");
     }
 }
 
 - (void)changeSource {
     switch (_segmentedControl.selectedSegmentIndex) {
         case 0:
-            _currentArray = [[DataManager sharedInstance] cities];
+            _dataSource = [[NSMutableArray alloc] initWithArray: [[DataManager sharedInstance] cities]];
+            _filtredDataSource = [[NSMutableArray alloc] initWithArray: [[DataManager sharedInstance] cities]];
+            _searchBar.searchTextField.text = @"";
             break;
         case 1:
-            _currentArray = [[DataManager sharedInstance] airports];
+            _dataSource = [[NSMutableArray alloc] initWithArray: [[DataManager sharedInstance] airports]];
+            _filtredDataSource = [[NSMutableArray alloc] initWithArray: [[DataManager sharedInstance] airports]];
+            _searchBar.searchTextField.text = @"";
             break;
         default:
             break;
@@ -90,7 +115,7 @@
 #pragma mark - UITableViewDataSource
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return [_currentArray count];
+    return [_filtredDataSource count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -101,12 +126,12 @@
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     }
     if (_segmentedControl.selectedSegmentIndex == 0) {
-        City *city = [_currentArray objectAtIndex:indexPath.row];
+        City *city = [_filtredDataSource objectAtIndex:indexPath.row];
         [cell configureWithName: city.name
                         andCode: city.code];
     }
     else if (_segmentedControl.selectedSegmentIndex == 1) {
-        Airport *airport = [_currentArray objectAtIndex:indexPath.row];
+        Airport *airport = [_filtredDataSource objectAtIndex:indexPath.row];
         [cell configureWithName: airport.name
                         andCode: airport.code];
     }
@@ -119,9 +144,74 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
     DataSourceType dataType = ((int)_segmentedControl.selectedSegmentIndex) + 1;
-    [self.delegate selectPlace: [_currentArray objectAtIndex: indexPath.row]
+    [self.delegate selectPlace: [_filtredDataSource objectAtIndex: indexPath.row]
                       withType: _placeType
                    andDataType: dataType];
     [self.navigationController popViewControllerAnimated: YES];
 }
+
+#pragma mark - UISearchBar
+
+-(void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText {
+    @try
+    {
+        [_filtredDataSource removeAllObjects];
+//        stringSearch = @"YES";
+        NSString *name = @"";
+        if ([searchText length] > 0)
+        {
+            for (int i = 0; i < [_dataSource count] ; i++)
+            {
+                if (_segmentedControl.selectedSegmentIndex == 0) {
+                    City *city = [_dataSource objectAtIndex:i];
+                    name = city.name;
+                }
+                else if (_segmentedControl.selectedSegmentIndex == 1) {
+                    Airport *airport = [_dataSource objectAtIndex:i];
+                    name = airport.name;
+                }
+                if (name.length >= searchText.length)
+                {
+                    NSRange titleResultsRange = [name rangeOfString:searchText options:NSCaseInsensitiveSearch];
+                    if (titleResultsRange.length > 0)
+                    {
+                        [_filtredDataSource addObject:[_dataSource objectAtIndex:i]];
+                    }
+                }
+            }
+        }
+        else
+        {
+            [_filtredDataSource addObjectsFromArray: _dataSource];
+        }
+        [_tableView reloadData];
+    }
+    @catch (NSException *exception) {
+        NSLog(@"Error: %@", exception);
+    }
+}
+
+- (void)searchBarTextDidBeginEditing:(UISearchBar *)SearchBar {
+    SearchBar.showsCancelButton= YES;
+}
+- (void)searchBarTextDidEndEditing:(UISearchBar *) SearchBar {
+    [SearchBar resignFirstResponder];
+}
+
+- (void)searchBarCancelButtonClicked:(UISearchBar *)SearchBar {
+    @try
+    {
+        SearchBar.showsCancelButton= NO;
+        [SearchBar resignFirstResponder];
+        [_tableView reloadData];
+    }
+    @catch (NSException *exception) {
+        NSLog(@"Error: %@", exception);
+    }
+}
+- (void)searchBarSearchButtonClicked:(UISearchBar *)SearchBar {
+    [SearchBar resignFirstResponder];
+}
+
+//
 @end

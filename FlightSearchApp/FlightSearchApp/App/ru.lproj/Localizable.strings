@@ -1,0 +1,34 @@
+/* 
+  Localizable.strings
+  FlightSearchApp
+
+  Created by Ruslan Safargalin on 13.06.2021.
+  
+*/
+
+"favorites" = "Избранное";
+"tikects" = "Билеты";
+"inSearch" = "В поиске";
+"onMap" = "На карте";
+"ticketActions" = "Действия с билетом";
+"What should be done with the selected ticket?" = "Что необходимо сделать с выбранным билетом?";
+"Remove from favorites" = "Удалить из избранного";
+"Add to favourites" = "Добавить в избранное";
+"Remind" = "Напомнить";
+"Close" = "Закрыть";
+"%@ - %@ for %@ ₽." = "%@ - %@ за %@ ₽.";
+"Ticket reminder" = "Напоминание о билете";
+"Successfully" = "Успешно";
+"Notification will be sent -%@" = "Уведомление будет отправлено - %@";
+"Search" = "Поиск";
+"From where" = "Откуда";
+"Where to" = "Куда";
+"To find" = "Найти";
+"You have not chosen a direction" = "Вы не выбрали направление";
+"Ooops!" = "Ooops!";
+"Ok" = "Ок";
+"No tickets found for this direction" = "Билеты по данному направлению не найдены";
+"Search ticket" = "Поиск билета";
+"Map price" = "Карта цен";
+"Cities" = "Города";
+"Airports" = "Аэропорты";
