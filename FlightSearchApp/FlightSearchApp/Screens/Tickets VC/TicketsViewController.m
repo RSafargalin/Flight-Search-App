@@ -45,7 +45,6 @@ TicketCell *notificationCell;
         _collectionView.backgroundColor = [UIColor whiteColor];
         _collectionView.dataSource = self;
         _collectionView.delegate = self;
-        
         [self.collectionView registerClass: [TicketCell class] forCellWithReuseIdentifier:TicketCellReuseIdentifier];
         [self.view addSubview:_collectionView];
         [self segmentedControlSetup];
@@ -72,7 +71,6 @@ TicketCell *notificationCell;
         _collectionView.dataSource = self;
         _collectionView.delegate = self;
         [_collectionView registerClass: [TicketCell class] forCellWithReuseIdentifier:TicketCellReuseIdentifier];
-        //
         _datePicker = [[UIDatePicker alloc] init];
         _datePicker.datePickerMode = UIDatePickerModeDateAndTime;
         _datePicker.minimumDate = [NSDate date];

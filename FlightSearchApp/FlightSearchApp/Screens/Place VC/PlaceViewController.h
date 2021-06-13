@@ -39,7 +39,3 @@ typedef enum PlaceType {
 - (instancetype)initWithType:(PlaceType)type;
 
 @end
-<<<<<<< Updated upstream
-=======
-
->>>>>>> Stashed changes

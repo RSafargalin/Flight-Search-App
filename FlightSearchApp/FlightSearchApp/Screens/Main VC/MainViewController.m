@@ -40,8 +40,10 @@
     _departureButton = [UIButton buttonWithType:UIButtonTypeSystem];
     [_departureButton setTitle:@"Откуда" forState: UIControlStateNormal];
     _departureButton.tintColor = [UIColor blackColor];
+
     _departureButton.layer.cornerRadius = 10;
     _departureButton.frame = CGRectMake(30.0, 160.0, [UIScreen mainScreen].bounds.size.width - 60.0, 60.0);
+
     _departureButton.backgroundColor = [[UIColor lightGrayColor] colorWithAlphaComponent:0.3];
     [_departureButton addTarget:self
                          action:@selector(placeButtonDidTap:)

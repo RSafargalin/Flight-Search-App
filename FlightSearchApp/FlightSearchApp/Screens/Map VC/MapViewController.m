@@ -29,20 +29,15 @@
     [super viewDidLoad];
     
     self.title = @"Карта цен";
-    
-    
-    
     _mapView = [[MKMapView alloc] initWithFrame:self.view.bounds];
     _mapView.showsUserLocation = YES;
     [self.view addSubview:_mapView];
     _mapView.delegate = self;
-    
     [[DataManager sharedInstance] loadData];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(dataLoadedSuccessfully) name:kDataManagerLoadDataDidComplete object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateCurrentLocation:) name:kLocationServiceDidUpdateCurrentLocation object:nil];
 }
-
 - (void)dealloc {
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
@@ -83,10 +78,6 @@
         });
     }
 }
-
-<<<<<<< Updated upstream
-=======
-
 - (void)mapView:(MKMapView *)mapView didSelectAnnotationView:(MKAnnotationView *)view {
     MKPointAnnotation *selectedAnnotation;
     selectedAnnotation = (MKPointAnnotation *) view.annotation;
@@ -129,6 +120,4 @@
         }
     }
 }
-
->>>>>>> Stashed changes
 @end
